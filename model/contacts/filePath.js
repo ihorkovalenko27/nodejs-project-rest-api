@@ -1,5 +1,5 @@
 const path = require('path')
 
-const filePath = path.join(__dirname, 'contacts.json')
+const filePath = path.resolve('./db/contacts.json')
 
 module.exports = filePath
