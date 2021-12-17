@@ -8,11 +8,12 @@ sgMail.setApiKey(SENDGRID_API_KEY)
 
 const sendEmail = async(data) => {
   const email = { ...data, from: 'kovalyan27@gmail.com' }
-  if (email) {
+  try {
     await sgMail.send(email)
     return true
+  } catch (error) {
+    throw new Unauthorized('Email didn`t send')
   }
-  throw new Unauthorized('Email didn`t send')
 }
 
 module.exports = sendEmail
